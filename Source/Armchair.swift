@@ -1725,11 +1725,11 @@ open class Manager : ArmchairManager {
     private static func getRootViewController() -> UIViewController? {
         if var window = UIApplication.shared.keyWindow {
             
-            if !window.windowLevel.isNormal {
+            if window.windowLevel != .normal {
                 let windows: NSArray = UIApplication.shared.windows as NSArray
                 for candidateWindow in windows {
                     if let candidateWindow = candidateWindow as? UIWindow {
-                        if candidateWindow.windowLevel.isNormal {
+                        if candidateWindow.windowLevel == .normal {
                             window = candidateWindow
                             break
                         }
